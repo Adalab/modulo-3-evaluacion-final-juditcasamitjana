@@ -1,4 +1,5 @@
 import React from "react";
+import "../scss/Filters.scss";
 
 function Filters({ onNameFilter }) {
     const handleChange = (e) => {
@@ -7,15 +8,15 @@ function Filters({ onNameFilter }) {
     };
 
     return (
-        <div>
-            <form action="">
-                <input
+        <section className="search">
+            <form className="form" action="form">
+                <input className="form__input"
                     type="text"
                     onChange={handleChange}
                     placeholder="Buscar personaje"
                 />
             </form>
-        </div>
+        </section>
     );
 }
 

@@ -39,7 +39,7 @@ function App() {
     });
 
     return (
-        <>
+        <body>
             <Header />
             <main>
                 <Routes>
@@ -60,7 +60,7 @@ function App() {
                     />
                 </Routes>
             </main>
-        </>
+        </body>
     );
 }
 
