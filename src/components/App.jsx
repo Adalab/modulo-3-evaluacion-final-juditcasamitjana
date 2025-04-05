@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import CharacterDetail from "./CharacterDetail";
 import { useEffect, useState } from "react";
 import Filters from "./Filters";
@@ -9,6 +9,7 @@ import "../scss/App.scss";
 function App() {
     const [nameFilter, setNameFilter] = useState("");
     const [characters, setCharacters] = useState([]);
+    const [selectedSpecies, setSelectedSpecies] = useState([]);
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -22,6 +23,8 @@ function App() {
                             name: result.name,
                             species: result.species,
                             status: result.status,
+                            origin: result.origin.name,
+                            episodes: result.episode.length
                         };
                     })
                 );
@@ -32,6 +35,17 @@ function App() {
         setNameFilter(nameFilter);
     };
 
+    const handleCheckboxChange = (e) => {
+        const value = e.target.value;
+        const isChecked = e.target.checked;
+
+        if (isChecked) {
+            setSelectedSpecies([...selectedSpecies, value]);
+        } else {
+            setSelectedSpecies(selectedSpecies.filter((species) => species !== value));
+        }
+    };
+
     const filteredCharacters = characters.filter((character) => {
         return character.name
             .toLowerCase()
@@ -39,7 +53,7 @@ function App() {
     });
 
     return (
-        <body>
+        <>
             <Header />
             <main>
                 <Routes>
@@ -47,7 +61,7 @@ function App() {
                         path="/"
                         element={
                             <>
-                                <Filters onNameFilter={handleNameFilter} />
+                                <Filters onNameFilter={handleNameFilter} onSpeciesFilter={handleCheckboxChange}/>
                                 <CharacterList
                                     characters={filteredCharacters}
                                 />
@@ -56,11 +70,15 @@ function App() {
                     />
                     <Route
                         path="/detail/:id"
-                        element={<CharacterDetail characters={characters} />}
+                        element={
+                        <>
+                            <Link className="back" to={"/"}>&lt; Volver</Link>
+                            <CharacterDetail characters={characters} />
+                        </>}
                     />
                 </Routes>
             </main>
-        </body>
+        </>
     );
 }
 
