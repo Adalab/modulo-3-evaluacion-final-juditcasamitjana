@@ -38,7 +38,8 @@ function App() {
         return character.name
             .toLowerCase()
             .includes(nameFilter.toLocaleLowerCase());
-    });
+    }).sort((a, b) => a.name.localeCompare(b.name));
+
 
     return (
         <>
