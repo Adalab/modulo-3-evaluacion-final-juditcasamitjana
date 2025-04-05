@@ -9,7 +9,6 @@ import "../scss/App.scss";
 function App() {
     const [nameFilter, setNameFilter] = useState("");
     const [characters, setCharacters] = useState([]);
-    const [selectedSpecies, setSelectedSpecies] = useState([]);
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -35,17 +34,6 @@ function App() {
         setNameFilter(nameFilter);
     };
 
-    const handleCheckboxChange = (e) => {
-        const value = e.target.value;
-        const isChecked = e.target.checked;
-
-        if (isChecked) {
-            setSelectedSpecies([...selectedSpecies, value]);
-        } else {
-            setSelectedSpecies(selectedSpecies.filter((species) => species !== value));
-        }
-    };
-
     const filteredCharacters = characters.filter((character) => {
         return character.name
             .toLowerCase()
@@ -61,7 +49,7 @@ function App() {
                         path="/"
                         element={
                             <>
-                                <Filters onNameFilter={handleNameFilter} onSpeciesFilter={handleCheckboxChange}/>
+                                <Filters onNameFilter={handleNameFilter} />
                                 <CharacterList
                                     characters={filteredCharacters}
                                 />
