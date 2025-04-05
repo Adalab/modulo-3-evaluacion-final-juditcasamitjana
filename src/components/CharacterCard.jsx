@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../scss/CharacterCard.scss";
 
 function CharacterCard({ character }) {
     return (
-        <li>
+        <li className="card">
             <Link to={`/detail/${character.id}`}>
-                <div>
-                    <img src={character.image} alt={character.name} />
-                </div>
-                <p>{character.name}</p>
-                <p>{character.species}</p>
-                <p>{character.status}</p>
+                <section>
+                    <img className="card__image" src={character.image} alt={character.name} />
+                </section>
+                <section className="card__character">
+                    <p>{character.name}</p>
+                    <p>{character.species}</p>
+                    <p>{character.status}</p>
+                </section>                
             </Link>
         </li>
     );

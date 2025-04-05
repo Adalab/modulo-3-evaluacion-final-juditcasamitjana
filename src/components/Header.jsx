@@ -1,12 +1,12 @@
 import React from "react";
+import "../scss/Header.scss";
 import logo from "../images/Rick_and_Morty_title_card.png";
 
 function Header() {
     return (
-        <div>
-            <h1>Evaluación Final React </h1>
-            <img src={logo} alt="Rick and Morty Logo" className="logo" />
-        </div>
+        <header className="header">
+            <img className="header__logo" src={logo} alt="Rick and Morty Logo" />
+        </header>
     );
 }
 
