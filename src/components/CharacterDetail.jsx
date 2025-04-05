@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import "../scss/CharacterDetail.scss";
 
 function CharacterDetail({ characters }) {
     const { id } = useParams();
@@ -13,13 +14,17 @@ function CharacterDetail({ characters }) {
     }
 
     return (
-        <div>
-            <div>
-                <img src={character.image} alt={character.name} />
-            </div>
-            <p>{character.name}</p>
-            <p>{character.species}</p>
-            <p>{character.status}</p>
+        <div className="container">
+            <section className="detail">
+                <img className="detail__image" src={character.image} alt={character.name} />
+            </section>
+            <section className="detail__character">
+                <h1>{character.name}</h1>
+                <p>Species: {character.species}</p>
+                <p>Status: {character.status}</p>
+                <p>Origin: {character.origin}</p>
+                <p>Episodes: {character.episodes}</p>
+            </section>            
         </div>
     );
 }

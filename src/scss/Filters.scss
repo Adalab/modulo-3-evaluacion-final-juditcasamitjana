@@ -10,9 +10,17 @@
 
     &__input {
         width: 100%;
-        border: 2px solid white;
-        border-radius: 3px;
-        padding-left: 5px;
+        height: 25px;
+        background-color: black;
+        color: white;
+        border: 2px solid #07B0C7;
+        border-radius: 15px;
+        padding-left: 10px;
+    }
+
+    &__checkbox {
+        background-color: aquamarine;
+        color: white;
     }
 }
 
