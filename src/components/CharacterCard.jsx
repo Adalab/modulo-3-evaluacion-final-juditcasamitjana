@@ -7,13 +7,32 @@ function CharacterCard({ character }) {
         <li className="card">
             <Link to={`/detail/${character.id}`}>
                 <section>
-                    <img className="card__image" src={character.image} alt={character.name} />
+                    <img
+                        className="card__image"
+                        src={character.image}
+                        alt={character.name}
+                    />
                 </section>
                 <section className="card__character">
                     <h1>{character.name}</h1>
-                    <p>{character.species}</p>
-                    <p>{character.status}</p>
-                </section>                
+                    <p>
+                        {character.species}{" "}
+                        {character.species === "Alien"
+                            ? "👽"
+                            : character.species === "Human"
+                            ? "👤"
+                            : "❔"}
+                    </p>
+
+                    <p>
+                        {character.status}{" "}
+                        {character.status === "Alive"
+                            ? "🤍"
+                            : character.status === "Dead"
+                            ? "🪦"
+                            : "❔"}
+                    </p>
+                </section>
             </Link>
         </li>
     );
