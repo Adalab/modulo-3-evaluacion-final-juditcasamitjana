@@ -4,6 +4,20 @@
     justify-items: center;
     padding: 30px;
     gap: 30px;
+
+    @media (min-width: 768px){
+        grid-template-columns: 1fr 1fr;    
+        justify-items: center;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    @media (min-width: 1024px){
+        grid-template-columns: 1fr 1fr 1fr;    
+        justify-items: center;
+        padding: 30px;
+        gap: 30px;
+    }
 }
 
 .list--empty {

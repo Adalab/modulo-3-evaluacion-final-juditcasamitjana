@@ -10,7 +10,7 @@ function CharacterCard({ character }) {
                     <img className="card__image" src={character.image} alt={character.name} />
                 </section>
                 <section className="card__character">
-                    <p>{character.name}</p>
+                    <h1>{character.name}</h1>
                     <p>{character.species}</p>
                     <p>{character.status}</p>
                 </section>                
