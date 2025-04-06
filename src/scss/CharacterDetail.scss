@@ -1,5 +1,4 @@
 .container {
-    // min-width: 375px;
     width: 80%;
     background-color: #07B0C7;
     border-radius: 10px;
@@ -8,11 +7,23 @@
     align-items: center;
     margin: auto;
 
+    @media (min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
     .detail {
         padding: 30px 30px 12px;
         gap: 30px;
         display: flex;
         align-items: center;
+        
+        @media (min-width: 768px){
+            flex-direction: row;
+            padding: 30px;
+            gap: 5px;
+        }
     
         &__image {
             width: 100%;
@@ -29,7 +40,13 @@
             align-items: flex-start;
             color: white;
             padding: 10px;
-            
+
+            @media (min-width: 768px){
+                display: flex;
+                padding: 30px;
+                gap: 5px;
+                font-size: 20px;
+            }
         }
     }
 }
