@@ -5,9 +5,12 @@ import Filters from "./Filters";
 import Header from "./Header";
 import CharacterList from "./CharacterList";
 import "../scss/App.scss";
+import localStorageService from "../services/localStorage";
 
 function App() {
-    const [nameFilter, setNameFilter] = useState("");
+    const [nameFilter, setNameFilter] = useState(
+        localStorageService.get("nameFilter", "")
+    );
     const [characters, setCharacters] = useState([]);
     const [speciesFilter, setSpeciesFilter] = useState("all");
 
@@ -24,7 +27,7 @@ function App() {
                             species: result.species,
                             status: result.status,
                             origin: result.origin.name,
-                            episodes: result.episode.length
+                            episodes: result.episode.length,
                         };
                     })
                 );
@@ -33,6 +36,7 @@ function App() {
 
     const handleNameFilter = (nameFilter) => {
         setNameFilter(nameFilter);
+        localStorageService.set("nameFilter", nameFilter);
     };
 
     const handleSpeciesFilter = (speciesFilter) => {
@@ -41,11 +45,11 @@ function App() {
 
     const filteredCharacters = characters
         .filter((character) => {
-            if (speciesFilter === 'all') {
+            if (speciesFilter === "all") {
                 return true;
             }
 
-            return character.species.toLowerCase() === speciesFilter
+            return character.species.toLowerCase() === speciesFilter;
         })
         .filter((character) => {
             return character.name
@@ -63,7 +67,11 @@ function App() {
                         path="/"
                         element={
                             <>
-                                <Filters onNameFilter={handleNameFilter} onSpeciesFilter={handleSpeciesFilter}/>
+                                <Filters
+                                    onNameFilter={handleNameFilter}
+                                    onSpeciesFilter={handleSpeciesFilter}
+                                    nameFilter={nameFilter}
+                                />
                                 <CharacterList
                                     characters={filteredCharacters}
                                 />
@@ -73,10 +81,13 @@ function App() {
                     <Route
                         path="/detail/:id"
                         element={
-                        <>
-                            <Link className="back" to={"/"}>&lt; Volver</Link>
-                            <CharacterDetail characters={characters} />
-                        </>}
+                            <>
+                                <Link className="back" to={"/"}>
+                                    &lt; Volver
+                                </Link>
+                                <CharacterDetail characters={characters} />
+                            </>
+                        }
                     />
                 </Routes>
             </main>
