@@ -1,7 +1,7 @@
 import React from "react";
 import "../scss/Filters.scss";
 
-function Filters({ onNameFilter, onSpeciesFilter, nameFilter }) {
+function Filters({ onNameFilter, onSpeciesFilter, nameFilter, speciesFilter }) {
     const handleChange = (e) => {
         const value = e.target.value;
         onNameFilter(value);
@@ -27,7 +27,11 @@ function Filters({ onNameFilter, onSpeciesFilter, nameFilter }) {
                     value={nameFilter}
                 />
                 <label htmlFor="species">Busca por especie</label>
-                <select className="form__select" onChange={handleChangeSpecies}>
+                <select
+                    className="form__select"
+                    onChange={handleChangeSpecies}
+                    value={speciesFilter}
+                >
                     <option value="all">Todas las especies</option>
                     <option value="alien">Alien</option>
                     <option value="human">Humano</option>
