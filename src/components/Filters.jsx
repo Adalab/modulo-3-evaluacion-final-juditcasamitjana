@@ -1,10 +1,15 @@
 import React from "react";
 import "../scss/Filters.scss";
 
-function Filters({ onNameFilter }) {
+function Filters({ onNameFilter, onSpeciesFilter }) {
     const handleChange = (e) => {
         const value = e.target.value;
         onNameFilter(value);
+    };
+
+    const handleChangeSpecies = (e) => {
+        const value = e.target.value;
+        onSpeciesFilter(value);
     };
 
     const handleOnSubmit = (e) => {
@@ -17,8 +22,14 @@ function Filters({ onNameFilter }) {
                 <input className="form__input"
                     type="text"
                     onChange={handleChange}
-                    placeholder="Buscar personaje"
-                />                                
+                    placeholder="Busca por personaje"
+                />
+                <label htmlFor="species">Busca por especie</label>
+                <select className="form__select" onChange={handleChangeSpecies}>
+                    <option value="all">Todas las especies</option>
+                    <option value="alien">Alien</option>
+                    <option value="human">Humano</option>
+                    </select>                                
             </form>
         </section>
     );

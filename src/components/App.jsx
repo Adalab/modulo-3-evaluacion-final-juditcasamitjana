@@ -9,6 +9,7 @@ import "../scss/App.scss";
 function App() {
     const [nameFilter, setNameFilter] = useState("");
     const [characters, setCharacters] = useState([]);
+    const [speciesFilter, setSpeciesFilter] = useState("all");
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -34,12 +35,24 @@ function App() {
         setNameFilter(nameFilter);
     };
 
-    const filteredCharacters = characters.filter((character) => {
-        return character.name
-            .toLowerCase()
-            .includes(nameFilter.toLocaleLowerCase());
-    }).sort((a, b) => a.name.localeCompare(b.name));
+    const handleSpeciesFilter = (speciesFilter) => {
+        setSpeciesFilter(speciesFilter);
+    };
 
+    const filteredCharacters = characters
+        .filter((character) => {
+            if (speciesFilter === 'all') {
+                return true;
+            }
+
+            return character.species.toLowerCase() === speciesFilter
+        })
+        .filter((character) => {
+            return character.name
+                .toLowerCase()
+                .includes(nameFilter.toLocaleLowerCase());
+        })
+        .sort((a, b) => a.name.localeCompare(b.name));
 
     return (
         <>
@@ -50,7 +63,7 @@ function App() {
                         path="/"
                         element={
                             <>
-                                <Filters onNameFilter={handleNameFilter} />
+                                <Filters onNameFilter={handleNameFilter} onSpeciesFilter={handleSpeciesFilter}/>
                                 <CharacterList
                                     characters={filteredCharacters}
                                 />
