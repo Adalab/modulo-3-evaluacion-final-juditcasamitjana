@@ -7,6 +7,7 @@
 
 .form {
     width: 50%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
 
@@ -15,7 +16,7 @@
         height: 25px;
         background-color: black;
         color: white;
-        border: 2px solid #07B0C7;
+        border: 2px solid #07b0c7;
         border-radius: 15px;
         padding-left: 10px;
     }
@@ -25,10 +26,8 @@
         height: 25px;
         background-color: black;
         color: white;
-        border: 2px solid #07B0C7;
+        border: 2px solid #07b0c7;
         border-radius: 15px;
         padding-left: 10px;
     }
 }
-
-
