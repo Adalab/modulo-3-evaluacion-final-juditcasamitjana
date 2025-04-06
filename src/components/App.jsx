@@ -12,7 +12,9 @@ function App() {
         localStorageService.get("nameFilter", "")
     );
     const [characters, setCharacters] = useState([]);
-    const [speciesFilter, setSpeciesFilter] = useState("all");
+    const [speciesFilter, setSpeciesFilter] = useState(
+        localStorageService.get("speciesFilter", "all")
+    );
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
@@ -41,6 +43,7 @@ function App() {
 
     const handleSpeciesFilter = (speciesFilter) => {
         setSpeciesFilter(speciesFilter);
+        localStorageService.set("speciesFilter", speciesFilter);
     };
 
     const filteredCharacters = characters
@@ -71,6 +74,7 @@ function App() {
                                     onNameFilter={handleNameFilter}
                                     onSpeciesFilter={handleSpeciesFilter}
                                     nameFilter={nameFilter}
+                                    speciesFilter={speciesFilter}
                                 />
                                 <CharacterList
                                     characters={filteredCharacters}
