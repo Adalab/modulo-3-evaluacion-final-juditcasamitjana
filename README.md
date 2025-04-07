@@ -21,9 +21,8 @@ Este proyecto te permite buscar personajes de la serie Rick y Morty! Podrás enc
 ### Cómo usarlo:
 
 1. **Clona este repositorio.**
-2. Abre el archivo **index.html** en tu navegador.
-3. Levanta el entorno con la opción "Open with Live Server".
-4. Puedes buscar y crear tu lista de series favoritas.
-5. Puedes modificar el código en **main.js** para agregar más funcionalidades.
+2. Abre la terminal y ejecuta: **npm install**
+3. Ejecuta **npm run dev** para levantar el entorno en tu navegador.
+4. Puedes buscar a tus personajes favoritos!
 
 **Wubba Lubba Dub Dub!!** 👽🦠👾
