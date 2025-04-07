@@ -1,12 +1,29 @@
-# React + Vite
+GitHub pages: http://beta.adalab.es/modulo-3-evaluacion-final-juditcasamitjana/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Buscador de personajes de Rick y Morty 👽🦠👾
 
-Currently, two official plugins are available:
+Este proyecto te permite buscar personajes de la serie Rick y Morty! Podrás encontrar a todos los personajes que aparecen en la serie, si estan vivos o muertos y de qué especie son!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estructura del proyecto:
 
-## Expanding the ESLint configuration
+-   App.jsx: Componente principal, actúa como el contenedor general que organiza y conecta todos los componentes secundarios y maneja el estado principal.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    -   Filters.jsx: Contiene la lógica de los filtros, el filtrado por nombre y el filtrado por especie.
+
+    -   CharacterList.jsx: Pinta la lista.
+
+        -   CharacterCard.jsx: Pinta cada personaje.
+
+    -   CharacterDetail.jsx: Pinta la tarjeta con detalle de cada personaje.
+
+    -   Header.jsx: Muestra el logo.
+
+### Cómo usarlo:
+
+1. **Clona este repositorio.**
+2. Abre el archivo **index.html** en tu navegador.
+3. Levanta el entorno con la opción "Open with Live Server".
+4. Puedes buscar y crear tu lista de series favoritas.
+5. Puedes modificar el código en **main.js** para agregar más funcionalidades.
+
+**Wubba Lubba Dub Dub!!** 👽🦠👾
